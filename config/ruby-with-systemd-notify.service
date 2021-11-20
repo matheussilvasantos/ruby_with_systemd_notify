@@ -1,0 +1,18 @@
+[Unit]
+Description=Ruby With Systemd Notify
+After=network.service
+StopWhenUnneeded=yes
+
+[Service]
+Type=notify
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/ruby_with_systemd_notify
+KillMode=process
+PIDFile=/tmp/ruby_with_systemd_notify.pid
+StandardOutput=syslog
+StandardError=syslog
+ExecStart=/opt/ruby_with_systemd_notify/bin/start
+
+[Install]
+WantedBy=multi-user.target
